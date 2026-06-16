@@ -1,0 +1,40 @@
+---
+description: Coding conventions, naming rules, and style standards for this project
+alwaysApply: true
+---
+# Conventions
+
+## TODO: Naming
+- Files and folders:
+- Classes and types:
+- Functions and methods:
+- Variables and constants:
+- Database tables and columns:
+- API routes and endpoints:
+
+## TODO: Code Style
+- Formatter (e.g., Prettier, Black, gofmt) and config location:
+- Linter (e.g., ESLint, Ruff, golangci-lint) and config location:
+- Max line length:
+- Import ordering:
+
+## TODO: Comments and Documentation
+- When to write inline comments (default: only for non-obvious WHY):
+- Docstring format (e.g., JSDoc, Google-style, none):
+- README and doc update policy:
+
+## TODO: Error Handling
+- How errors are represented (exceptions, Result types, error codes):
+- Logging conventions (levels, format, what to include):
+- What errors bubble up vs. are handled locally:
+
+## TODO: Testing
+- Test file location and naming convention:
+- What to unit test vs. integration test:
+- Mocking policy:
+- Minimum coverage requirements (if any):
+
+## TODO: Git and Branching (human conventions — agents do not commit)
+- Branch naming:
+- Commit message format:
+- PR size guidelines:

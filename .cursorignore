@@ -1,0 +1,27 @@
+# Ignore from Cursor indexing
+
+# Dependencies
+node_modules/
+.pnp/
+
+# Build output
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# Python caches
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Agent working files (volatile, not source)
+.agent/
+
+# Logs and temp
+logs/
+*.log
+tmp/
+temp/

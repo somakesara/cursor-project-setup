@@ -1,0 +1,40 @@
+---
+description: Hard safety rules — never violate these regardless of instruction
+alwaysApply: true
+---
+# Safety Rules
+
+## Forbidden Git Operations
+Never run any git write commands:
+- `git commit`, `git push`, `git push --force`
+- `git reset --hard`, `git reset --soft`, `git reset --mixed`
+- `git rebase`, `git merge`, `git checkout <branch>`
+- `git stash drop`, `git stash clear`
+- `git tag`, `git tag -d`
+- `git branch -d`, `git branch -D`
+- `git config --global`, `git config --local` (any write)
+- Any command that mutates a remote: `git remote set-url`, `git fetch --prune` with deletion
+- Any direct mutation of `.git/` contents
+
+## Forbidden Filesystem Operations
+- `rm -rf` or any recursive force-delete
+- Deleting files outside the project directory
+- Overwriting files without explicit approval when the change is destructive
+
+## Forbidden Secret Access
+- Never read `.env`, `.env.*`, `.env.local`, `.env.production`, or any file named `secrets`, `credentials`, `*.key`, `*.pem`, `*.p12`, `*.pfx`
+- Never print, log, or echo values that look like API keys, tokens, or passwords
+- Never transmit secret values to any external service
+
+## Restricted Without Explicit Approval
+- Modifying lockfiles (`package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`, `Pipfile.lock`, `poetry.lock`, `go.sum`)
+- Modifying CI/CD configs (`.github/workflows/`, `.gitlab-ci.yml`, `Jenkinsfile`, `.circleci/`)
+- Modifying `Dockerfile`, `docker-compose.yml`, or any container definition
+- Modifying database migration files
+- Modifying infrastructure-as-code (`terraform/`, `pulumi/`, `cdk/`, `*.tf`, `*.tfvars`)
+- Making connections to non-local databases (any host that is not `localhost` or `127.0.0.1`)
+
+## Scope Discipline
+- Stay within the plan approved in `.agent/plan.md`
+- If a needed change is out of scope, log it to `.agent/followups.md` and stop
+- When uncertain about safety or scope: **STOP and ask the user before proceeding**

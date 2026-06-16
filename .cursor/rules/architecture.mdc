@@ -1,0 +1,25 @@
+---
+description: System architecture overview and structural constraints
+alwaysApply: true
+---
+# Architecture
+
+## TODO: System Overview
+Describe the high-level architecture here (e.g., monolith, microservices, layered, event-driven).
+
+## TODO: Component Map
+List the major components/services and how they relate to each other.
+
+## TODO: Data Flow
+Describe how data moves through the system (request → handler → service → repository → DB, etc.).
+
+## TODO: Boundaries and Constraints
+- What must remain decoupled?
+- What are the integration points with external systems?
+- What patterns are enforced (e.g., no direct DB access from controllers)?
+
+## TODO: Deployment Topology
+Describe how the system is deployed (containers, serverless, bare metal, cloud provider, etc.).
+
+## TODO: Key Decisions (ADRs)
+Record significant architectural decisions and their rationale here, or link to a dedicated `docs/adr/` folder.

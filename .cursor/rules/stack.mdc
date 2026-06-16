@@ -1,0 +1,37 @@
+---
+description: Technology stack, versions, and approved libraries
+alwaysApply: true
+---
+# Stack
+
+## TODO: Language(s) and Runtime(s)
+- Primary language and version (e.g., TypeScript 5.4, Python 3.12, Go 1.22):
+- Runtime / platform (e.g., Node.js 20, CPython, JVM 21):
+
+## TODO: Frameworks
+- Web / API framework:
+- ORM / data access:
+- Background jobs:
+- Authentication:
+
+## TODO: Infrastructure
+- Database(s) and version(s):
+- Cache:
+- Message queue / event bus:
+- Object storage:
+- Hosting / cloud provider:
+
+## TODO: Frontend (if applicable)
+- UI framework:
+- Build tool:
+- CSS approach:
+- Component library:
+
+## TODO: Approved Libraries
+List third-party libraries that are pre-approved for use (agents should not add new dependencies without approval):
+
+## TODO: Prohibited Libraries
+List libraries that must not be used and the reason why:
+
+## TODO: Version Pinning Policy
+Describe how versions are managed (exact pins, ranges, renovate/dependabot policy):

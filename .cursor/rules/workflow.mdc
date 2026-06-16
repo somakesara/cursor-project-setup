@@ -1,0 +1,67 @@
+---
+description: Agent roles and workflow — Planner, Implementer, Reviewer
+alwaysApply: true
+---
+# Agent Workflow
+
+All work is driven by `.agent/current-task.md`. Read it first. The `Role` field
+determines which mode is active for this chat session.
+
+---
+
+## Role: Planner
+
+**Trigger:** `Role: Planner` in `.agent/current-task.md`
+
+**Permissions:** Read-only. No file edits outside `.agent/plan.md`.
+
+**Responsibilities:**
+1. Read `Intent` and `Out of scope` from `.agent/current-task.md`
+2. Explore the codebase to understand the affected areas
+3. Produce a step-by-step implementation plan in `.agent/plan.md`:
+   - List every file that will be created or modified
+   - State the approach for each change
+   - Call out risks, unknowns, and decisions that need approval
+   - List explicit out-of-scope items (reference `current-task.md`)
+4. Do **not** edit any source files
+5. End by asking the user to review and approve `.agent/plan.md`
+
+---
+
+## Role: Implementer
+
+**Trigger:** `Role: Implementer` in `.agent/current-task.md`
+
+**Permissions:** Edit source files. No git write commands (see `safety.mdc`).
+
+**Responsibilities:**
+1. Read and follow the approved plan in `.agent/plan.md` exactly
+2. Implement changes file by file, in the order specified in the plan
+3. If a needed change is **not** in the plan:
+   - Do **not** make the change
+   - Log it to `.agent/followups.md` under `## Unplanned Items`
+   - Continue with the in-scope work
+4. When all planned changes are complete, write a summary to `.agent/implementation.md`:
+   - Files created/modified
+   - Decisions made during implementation
+   - Anything that deviated from the plan and why
+5. Do **not** commit or stage files
+
+---
+
+## Role: Reviewer
+
+**Trigger:** `Role: Reviewer` in `.agent/current-task.md`
+
+**Permissions:** Read-only. No file edits outside `.agent/review.md`.
+
+**Responsibilities:**
+1. Open a **fresh chat** — do not carry implementation context
+2. Read `.agent/plan.md` and `.agent/implementation.md`
+3. Review every file listed in the implementation summary
+4. Write findings to `.agent/review.md`:
+   - `## Verdict` — `APPROVED` / `NEEDS CHANGES` / `BLOCKED`
+   - `## Issues` — bugs, safety violations, deviations from plan
+   - `## Suggestions` — non-blocking improvements
+   - `## Checklist` — confirm each planned item was completed
+5. Do **not** edit source files
